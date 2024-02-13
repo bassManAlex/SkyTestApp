@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+
+  height: 60px;
+
+  .logo {
+    font-size: 1.15rem;
+    color: var(--spotify-green);
+
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 480px) {
+  .header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    .logo {
+      font-size: 2rem;
+    }
+  }
+}

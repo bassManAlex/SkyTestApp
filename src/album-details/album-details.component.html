@@ -1,0 +1,44 @@
+<app-header></app-header>
+<div class="container" *ngIf="albumDetails$ | async as album">
+  <div class="album-details">
+    <div class="content-album">
+      <h3 class="authors">
+        <span class="artist" *ngFor="let artist of album.artists">
+          <a [href]="artist.href" target="_blank">{{ artist.name }}</a>
+        </span>
+      </h3>
+      <h2 class="title"><a [href]="album.href" target="_blank">{{ album.name }}</a></h2>
+      <div class="other-infos">
+        <div class="info"><span class="label">Release date:</span> {{ convertReleaseDate(album.release_date) }}</div>
+        <div class="info"><span class="label">Tracks:</span> {{ album.total_tracks }}</div>
+        <div class="copyrights">
+          <span class="copy" *ngFor="let copyrights of album.copyrights">
+            {{ copyrights.text }}
+          </span>
+        </div>
+        <div class="track-list">
+        <div class="track" *ngFor="let track of album.tracks.items">
+          <div class="play">
+            <a [href]="track.href" target="_blank">
+              <span class="mdi mdi-play-circle"></span>
+            </a>
+          </div>
+          <div class="song">
+            <div class="song-title">{{track.track_number }}. {{ track.name }}</div>
+            <div class="song-details">
+              <div class="explicit" *ngIf="!track.explicit">
+                <span class="mdi mdi-exclamation-thick"></span>
+                <span>Explicit content </span>
+              </div>
+            </div>
+          </div>
+          <div class="duration">{{ convertDuration(track.duration_ms) }}</div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="album-image">
+      <img [src]="album.images[0].url" />
+    </div>
+  </div>
+</div>

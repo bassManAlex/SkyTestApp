@@ -1,0 +1,48 @@
+:host {
+  display: block;
+
+  .container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .authorization-form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 0.75rem;
+
+      .control {
+        margin-bottom: calc(0.75rem * 1.25);
+
+        input[type="text"] {
+          width: 91%;
+        }
+    }
+
+    }
+  }
+
+  @media (min-width: 480px) {
+    .container {
+      h1 {
+        font-size: 2rem;
+      }
+      .authorization-form {
+        max-width: 400px;
+        border-radius: var(--default-radius);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+
+        .control {
+          input[type="text"] {
+            width: 93%;
+          }
+        }
+      }
+    }
+  }
+
+}

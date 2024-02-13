@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div class="container">
+  <div class="search-form">
+    <div class="search-wrapper">
+      <input
+        class="input-form"
+        type="text"
+        placeholder="Search album"
+        [(ngModel)]="searchFor"
+        (blur)="onSearchClick($event)"
+        (click)="onSearchClick($event)"
+        (keydown.enter)="onSearchClick($event)" />
+        <i class="mdi mdi-magnify right" (click)="onSearchClick($event)"></i>
+    </div>
+  </div>
+  <h2>Latest releases</h2>
+  <div class="album-list" *ngIf="displayAlbums">
+    <div class="album-box"
+      *ngFor="let album of displayAlbums?.items"
+      >
+      <img
+        class="album-image"
+        [src]="album.images[0].url"
+        />
+      <div class="album-info" (click)="onAlbumClick(album.id)">
+        <h3 class="album-title">{{album.name}}</h3>
+        <span class="artists" *ngFor="let artist of album.artists">{{artist.name}}</span>
+      </div>
+    </div>
+
+  </div>
+</div>

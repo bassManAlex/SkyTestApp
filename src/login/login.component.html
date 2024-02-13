@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Spotify Test Application</h1>
+
+  <div class="authorization-form">
+    <form [formGroup]="form">
+      <div class="control">
+        <label for="clientId">Client ID</label>
+        <input type="text" [formControlName]="'clientId'"/>
+        </div>
+      <div class="control">
+        <label for="secretId">Secret</label>
+        <input type="text" [formControlName]="'secretId'"/>
+      </div>
+      <div class="footer">
+        <button type="submit" class="btn btn-primary full-width" (click)="onClickAuthorize()">Authorize</button>
+      </div>
+    </form>
+  </div>
+</div>

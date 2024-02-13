@@ -1,0 +1,143 @@
+:host {
+  display: block;
+
+  .container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1.25rem;
+    box-sizing: border-box;
+
+    .album-details {
+      width: 100%;
+      padding: 3em 0 1em 0;
+      display: flex;
+      flex-direction: column-reverse;
+
+      .album-image {
+        flex-shrink: 0;
+        margin: 0 0 2em 0;
+        height: 25em;
+        max-height: 35vh;
+        min-height: 18em;
+        width: 100%;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-position: center;
+          object-fit: cover;
+          border-radius: var(--default-radius);
+        }
+      }
+      .content-album {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 100%;
+
+        .authors {
+          .artist {
+            a {
+              color: var(--shading);
+              text-decoration: none;
+            }
+
+            &:not(:last-child) {
+              &::after {
+                content: ',';
+              }
+            }
+          }
+        }
+
+        .other-infos {
+
+          .info {
+            font-size: 0.75rem;
+            .label {
+              color: var(--shading);
+              margin-right: 0.25rem;
+            }
+          }
+
+          .copyrights {
+            font-size: 0.75rem;
+
+            .copy:not(:last-child) {
+              &::after {
+                content: ',';
+              }
+            }
+          }
+
+          .track-list {
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            .track {
+              display: flex;
+              justify-content: space-between;
+              flex-basis: 0;
+              gap: 0.5rem;
+              align-items: center;
+              font-size: 0.75rem;
+
+              .play {
+                span {
+                  font-size: 1.5rem;
+                  color: var(--spotify-green);
+                }
+              }
+              .song {
+                flex-grow: 1;
+                flex-basis: 0;
+
+                .song-title {
+                  font-weight: bold;
+                  text-decoration: underline;
+                }
+
+                .explicit {
+                  color: var(--danger)
+                }
+              }
+
+              .duration {
+                color: var(--shading);
+              }
+            }
+          }
+
+        }
+      }
+    }
+  }
+
+  @media (min-width: 960px) {
+    .container {
+      .album-details {
+
+        flex-direction: initial;
+
+        .album-image {
+          flex-grow: 0;
+          flex-shrink: 0;
+          width: 50%;
+          display: block;
+          margin: 0 0 2rem 2rem;
+        }
+
+        .content-album {
+          flex-grow: 1;
+          flex-shrink: 1;
+          width: 50%;
+        }
+      }
+    }
+  }
+
+}
+
