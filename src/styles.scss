@@ -51,6 +51,7 @@ button, .btn {
   border: none;
   border-radius: var(--form-radius);
   transition: background-color 0.3s ease;
+  cursor: pointer;
 
   &.full-width {
     width: 100%;
@@ -60,7 +61,7 @@ button, .btn {
     background-color: var(--spotify-green);
     color: var(--primary);
 
-    &:hover, &:not(:active) {
+    &:hover {
       background-color: var(--primary);
       color: var(--spotify-green);
     }
@@ -70,7 +71,7 @@ button, .btn {
     background-color: var(--alternate);
     color: var(--primary);
 
-    &:hover, &:not(:active) {
+    &:hover {
       background-color: var(--primary);
       color: var(--alternate);
     }
